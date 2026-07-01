@@ -1,1 +1,149 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif;
+
+  --color-cinema-dark: #0a0a0f;
+  --color-cinema-card: #13131a;
+  --color-cinema-surface: #1a1a24;
+  --color-cinema-border: #2a2a38;
+  --color-cinema-gold: #e8b923;
+  --color-cinema-gold-light: #f5d061;
+  --color-cinema-red: #c41e3a;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cinema-dark);
+  color: #e7e5e4;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.cinema-spotlight {
+  background: radial-gradient(
+    ellipse 90% 60% at 50% -10%,
+    rgba(232, 185, 35, 0.12),
+    transparent 65%
+  );
+}
+
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+.cinema-card {
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 36, 0.95) 0%,
+    rgba(19, 19, 26, 0.98) 100%
+  );
+  border: 1px solid var(--color-cinema-border);
+  box-shadow:
+    0 0 0 1px rgba(232, 185, 35, 0.05),
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.cinema-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cinema-gold),
+    var(--color-cinema-red),
+    var(--color-cinema-gold),
+    transparent
+  );
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-cinema-primary {
+  background: linear-gradient(135deg, #e8b923 0%, #c9971a 100%);
+  color: #0a0a0f;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(232, 185, 35, 0.25);
+}
+
+.btn-cinema-primary:hover {
+  background: linear-gradient(135deg, #f5d061 0%, #e8b923 100%);
+  box-shadow: 0 6px 28px rgba(232, 185, 35, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-cinema-secondary {
+  background: transparent;
+  border: 1px solid var(--color-cinema-border);
+  color: #a8a29e;
+  transition: all 0.2s ease;
+}
+
+.btn-cinema-secondary:hover {
+  border-color: rgba(232, 185, 35, 0.4);
+  color: #e7e5e4;
+  background: rgba(232, 185, 35, 0.05);
+}
+
+.cinema-input {
+  background: rgba(10, 10, 15, 0.6);
+  border: 1px solid var(--color-cinema-border);
+  color: #e7e5e4;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cinema-input::placeholder {
+  color: #57534e;
+}
+
+.cinema-input:focus {
+  outline: none;
+  border-color: rgba(232, 185, 35, 0.5);
+  box-shadow: 0 0 0 3px rgba(232, 185, 35, 0.1);
+}
+
+.cinema-input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.movie-option {
+  background: rgba(10, 10, 15, 0.5);
+  border: 1px solid var(--color-cinema-border);
+  transition: all 0.2s ease;
+}
+
+.movie-option:hover {
+  border-color: rgba(232, 185, 35, 0.25);
+  background: rgba(232, 185, 35, 0.03);
+}
+
+.movie-option-selected {
+  border-color: rgba(232, 185, 35, 0.6);
+  background: rgba(232, 185, 35, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(232, 185, 35, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.ticket-notch {
+  background-image: radial-gradient(
+    circle at 0 50%,
+    var(--color-cinema-dark) 6px,
+    transparent 6px
+  );
+  background-size: 12px 24px;
+  background-repeat: repeat-y;
+}
